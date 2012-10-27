@@ -1,0 +1,50 @@
+red=`tput setaf 1`
+green=`tput setaf 2`
+blue=`tput setaf 6`
+yellow=`tput setaf 3`
+reset=`tput sgr0`
+bold=`tput bold`
+
+export CC="gcc-4.2"
+export CXX="g++-4.2"
+
+export PATH="/usr/local/sbin:$HOME/.cabal/bin:/usr/local/bin:$PATH"
+
+export PATH="<%= DIR %>/bin:$PATH"
+
+export CLICOLOR=1
+alias la="ls -a"
+alias ll="ls -l"
+alias irb="pry --simple-prompt"
+alias tor-ssh='ssh -o ProxyCommand="/usr/local/bin/connect -4 -S localhost:49546 %h %p"'
+alias get="axel -n 20 -a "
+
+function prompt-normal {
+        PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /')\[$red\]\$(rvm current) \[$green\]\[$bold\]% \[$reset\]"
+}
+function prompt-min {
+        PS1="\[\033[G\]\[$green\]\[$bold\]% \[$reset\]"
+}
+prompt-normal
+
+alias glog="git log --color --oneline"
+alias gl="glog --graph"
+alias gp="git push"
+alias gco="git checkout"
+alias gcl="git clone"
+alias gg="git gui"
+alias r="rails"
+alias composer="php composer.phar"
+alias ..="cd .."
+alias hl="pygmentize"
+
+alias phpdis="php -dextension=/Users/charlie/crap/vld/modules/vld.so -dvld.active=1 -dvld.execute=0"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+source ~/perl5/perlbrew/etc/bashrc
+perlbrew switch perl-5.16.0
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi

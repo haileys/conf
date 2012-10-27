@@ -1,0 +1,10 @@
+Host github.com
+	ControlPath ~/.ssh/control-%r@%h:%p
+	ControlPersist 2h
+	ControlMaster auto
+
+Host charlie.bz
+	User root
+	ControlPath ~/.ssh/control-%r@%h:%p
+	ControlPersist 2h
+	ControlMaster auto

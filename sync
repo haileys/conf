@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+require "fileutils"
+require "erb"
+
+unless ARGV.include? "--no-git-pull"
+  system "git pull"
+  exec File.expand_path(__FILE__), "--no-git-pull"
+end
+
+SYSTEM = `uname`.chomp.downcase
+
+DIR = File.dirname __FILE__
+
+files = {
+  "config/bash_profile.erb" => "~/.bash_profile",
+  "config/ackrc"            => "~/.ackrc",
+  "config/gitconfig"        => "~/.gitconfig",
+  "config/gemrc"            => "~/.gemrc",
+  "config/vimrc"            => "~/.vimrc",
+  "config/ssh-config"       => "~/.ssh/config",
+}
+
+files.each do |from, to|
+  print "\e[33;1m=> \e[0;1m#{to}\e[0m"
+  from = "#{DIR}/#{from}"
+  to = to.gsub(/^~/, ENV["HOME"])
+  unless File.exist? from
+    puts "\e[31;1m no such file!\e[0m"
+    next
+  end
+  if from =~ /\.erb$/
+    File.write to, ERB.new(File.read(from)).result
+    puts "\e[32;1m erb\e[0m"
+  else
+    FileUtils.cp from, to
+    puts "\e[32;1m cp\e[0m"
+  end
+end
