@@ -11,28 +11,40 @@ SYSTEM = `uname`.chomp.downcase
 
 DIR = File.dirname __FILE__
 
-files = {
-  "config/bash_profile.erb" => "~/.bash_profile",
-  "config/ackrc"            => "~/.ackrc",
-  "config/gitconfig"        => "~/.gitconfig",
-  "config/gemrc"            => "~/.gemrc",
-  "config/vimrc"            => "~/.vimrc",
-  "config/ssh-config"       => "~/.ssh/config",
-}
+puts "\e[33;1mSyncing files\e[0m"
 
-files.each do |from, to|
-  print "\e[33;1m=> \e[0;1m#{to}\e[0m"
-  from = "#{DIR}/#{from}"
-  to = to.gsub(/^~/, ENV["HOME"])
-  unless File.exist? from
-    puts "\e[31;1m no such file!\e[0m"
-    next
+def sync(files)
+  files.each do |from, to|
+    print "\e[34;1m=> \e[0;1m#{to}\e[0m"
+    from = "#{DIR}/#{from}"
+    to = to.gsub(/^~/, ENV["HOME"])
+    unless File.exist? from
+      puts "\e[31;1m no such file!\e[0m"
+      next
+    end
+    if from =~ /\.erb$/
+      File.write to, ERB.new(File.read(from)).result
+      puts "\e[32;1m erb\e[0m"
+    else
+      FileUtils.cp from, to
+      puts "\e[32;1m cp\e[0m"
+    end
   end
-  if from =~ /\.erb$/
-    File.write to, ERB.new(File.read(from)).result
-    puts "\e[32;1m erb\e[0m"
-  else
-    FileUtils.cp from, to
-    puts "\e[32;1m cp\e[0m"
+end
+
+Dir["./**/sync.rb"].each do |file|
+  load file
+end
+
+puts "\e[33;1mRunning hooks\e[0m"
+
+Dir["./hooks/*.rb"].each do |file|
+  hook_name = file.split("/").last[0...-3]
+  print "\e[34;1m=> \e[0;1m#{hook_name}\e[0m"
+  begin
+    load file
+    puts "\e[32;1m ok\e[0m"
+  rescue  
+    puts "\e[31;1m failed\e[0m"
   end
 end

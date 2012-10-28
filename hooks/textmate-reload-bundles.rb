@@ -1,0 +1,1 @@
+`osascript -e 'tell app "TextMate" to reload bundles'` if SYSTEM == "darwin"
