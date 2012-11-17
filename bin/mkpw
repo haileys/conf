@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require "securerandom"
 
-puts SecureRandom.base64(24).gsub(/[\/\+\=]/,"")
+puts SecureRandom.base64((ARGV.first || 24).to_i).gsub(/[\/\+\=]/,"")
