@@ -23,7 +23,7 @@ def sync(files)
       next
     end
     if from =~ /\.erb$/
-      File.write to, ERB.new(File.read(from)).result
+      File.open(to, "w") { |f| f.write ERB.new(File.read(from)).result }
       puts "\e[32;1m erb\e[0m"
     else
       FileUtils.cp from, to
