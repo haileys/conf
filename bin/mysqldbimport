@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+if [ "$#" == "0" ]; then
+  echo "Usage mysqldbimport MYSQLGZIPPEDBACKUPFILE [args to pass to mysql]"
+  echo "e.g. mysqldbimport mybackup.sql.gz -u root my_database_name"
+fi
+
+BACKUP_FILE="$1"
+shift
+MYSQL_ARGS="$@"
+
+pv "$BACKUP_FILE" | gunzip -c | mysql $MYSQL_ARGS
