@@ -12,7 +12,7 @@ export CXX="g++-4.2"
 
 export PATH="/usr/local/share/npm/bin/:/usr/local/sbin:$HOME/.cabal/bin:/usr/local/bin:$PATH"
 
-export PATH="<%= DIR %>/bin:$PATH"
+export PATH="<%= ENV["HOME"] %>/bin:<%= DIR %>/bin:$PATH"
 
 export CLICOLOR=1
 alias la="ls -a"
