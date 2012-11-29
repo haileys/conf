@@ -1,2 +1,5 @@
 Host charlie.bz
 	User root
+
+Host *
+    ServerAliveInterval 30
