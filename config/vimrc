@@ -4,3 +4,5 @@ set background=dark
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+au BufRead,BufNewFile ~/code/ruby/* setl tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
