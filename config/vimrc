@@ -6,7 +6,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set smartindent
+set autoindent
 set number
 
 au BufRead,BufNewFile ~/code/ruby/* setl tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
+au BufRead,BufNewFile *.rb setl tabstop=2 shiftwidth=4 softtabstop=2 expandtab
