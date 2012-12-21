@@ -1,4 +1,6 @@
 --type-add
 js=.coffee
+--type-add
 css=.scss
+--type-add
 html=.erb
