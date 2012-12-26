@@ -27,6 +27,10 @@ function pless {
 	ptydo $@ | less -r
 }
 
+function gsvn {
+    LANG=C git svn $*
+}
+
 function prompt-normal {
         PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /')\[$red\]\$(rvm current) \[$green\]\[$bold\]$prompt_char \[$reset\]"
 }
