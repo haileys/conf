@@ -23,14 +23,6 @@ alias get="axel -n 20 -a "
 
 prompt_char="λ"
 
-function pless {
-	ptydo $@ | less -r
-}
-
-function gsvn {
-    LANG=C git svn $*
-}
-
 function prompt-normal {
         PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /')\[$red\]\$(rvm current) \[$green\]\[$bold\]$prompt_char \[$reset\]"
 }
@@ -38,6 +30,10 @@ function prompt-min {
         PS1="\[\033[G\]\[$green\]\[$bold\]$prompt_char \[$reset\]"
 }
 prompt-normal
+
+function gsvn {
+    LANG=C git svn $*
+}
 
 alias glog="git log --color --oneline"
 alias gl="glog --graph"
