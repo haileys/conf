@@ -23,11 +23,15 @@ alias get="axel -n 20 -a "
 
 prompt_char="λ"
 
+function current-branch {
+    git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /'
+}
+
 function prompt-normal {
-        PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /')\[$red\]\$(rvm current) \[$green\]\[$bold\]$prompt_char \[$reset\]"
+    PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(current-branch)\[$red\]\$(rvm current) \[$green\]\[$bold\]$prompt_char \[$reset\]"
 }
 function prompt-min {
-        PS1="\[\033[G\]\[$green\]\[$bold\]$prompt_char \[$reset\]"
+    PS1="\[\033[G\]\[$green\]\[$bold\]$prompt_char \[$reset\]"
 }
 prompt-normal
 
