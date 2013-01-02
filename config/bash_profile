@@ -9,7 +9,7 @@ bold=`tput bold`
 
 export PATH="/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/:/usr/local/share/npm/bin/:/usr/local/sbin:$HOME/.cabal/bin:/usr/local/bin:$PATH"
 
-export PATH="<%= ENV["HOME"] %>/bin:<%= DIR %>/bin:$PATH"
+export PATH="$HOME/bin:$HOME/conf/bin:$PATH"
 
 export CLICOLOR=1
 alias la="ls -a"
