@@ -1,4 +1,4 @@
-sync  "config/bash_profile.erb" => "~/.bash_profile",
+sync  "config/bash_profile"     => "~/.bash_profile",
       "config/ackrc"            => "~/.ackrc",
       "config/gitconfig"        => "~/.gitconfig",
       "config/gemrc"            => "~/.gemrc",
