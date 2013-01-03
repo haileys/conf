@@ -36,6 +36,16 @@ function gsvn {
     LANG=C git svn $*
 }
 
+# git checkout fuzzy
+function gcf {
+    branch="$(git branch | cut -b3- | grep "$1")"
+    if [[ -n "$branch" ]]; then
+        git checkout "$branch"
+    else
+        echo "Couldn't find branch matching $1." >&2
+    fi
+}
+
 alias glog="git log --color --oneline"
 alias gl="glog --graph"
 alias gp="git push"
