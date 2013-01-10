@@ -2,9 +2,9 @@
 require "fileutils"
 require "erb"
 
-unless ARGV.include? "--no-git-pull"
+if ARGV.include? "--sync"
   system "git pull"
-  exec File.expand_path(__FILE__), "--no-git-pull"
+  exec File.expand_path(__FILE__)
 end
 
 SYSTEM = `uname`.chomp.downcase
