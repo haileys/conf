@@ -5,5 +5,8 @@ Host charlie.bz
 Host support-staging
     ForwardAgent yes
 
+Host support.envato.com
+    ForwardAgent yes
+
 Host *
     ServerAliveInterval 30
