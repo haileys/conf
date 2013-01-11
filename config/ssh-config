@@ -2,8 +2,6 @@ Host charlie.bz
 	User root
     ForwardAgent yes
 
-Host support-staging
-    ForwardAgent yes
-
 Host *
+    ForwardAgent yes
     ServerAliveInterval 30
