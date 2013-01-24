@@ -46,6 +46,16 @@ function gcf {
     fi
 }
 
+# git easy push
+function gep {
+    git push $* origin $(current-branch)
+}
+
+# git easy pull
+function gepl {
+    git pull --rebase $* origin $(current-branch)
+}
+
 alias cb="current-branch"
 alias glog="git log --color --oneline"
 alias gl="glog --graph"
@@ -79,7 +89,7 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
     source "/usr/local/opt/chruby/share/chruby/chruby.sh"
     export RUBIES=(~/.rubies/*)
     function current-ruby {
-        echo "$RUBY_VERSION"
+        ruby -v | cut -d' ' -f2
     }
     chruby ruby-1.9.3-p362
 fi
