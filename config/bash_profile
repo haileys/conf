@@ -76,6 +76,7 @@ alias ..="cd .."
 alias hl="pygmentize"
 alias b="bundle"
 alias be="bundle exec"
+alias vagrant="/usr/bin/vagrant"
 
 alias phpdis="php -dextension=/Users/charlie/crap/vld/modules/vld.so -dvld.active=1 -dvld.execute=0"
 
