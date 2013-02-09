@@ -31,6 +31,14 @@ map! <M-Esc>[63~ <ScrollWheelDown>
 map! <M-Esc>[64~ <S-ScrollWheelUp>
 map! <M-Esc>[65~ <S-ScrollWheelDown>
 
+" most useless crap ever, stops you using the alt key
+:set winaltkeys=no
+
+map! <C-up>    <C-w><up>
+map! <C-down>  <C-w><down>
+map! <C-left>  <C-w><left>
+map! <C-right> <C-w><right>
+
 " make keypad work in vim with iTerm on OS X!
 map <Esc>Oq 1
 map <Esc>Or 2
