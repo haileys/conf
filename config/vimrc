@@ -12,3 +12,54 @@ set number
 au BufRead,BufNewFile ~/code/ruby/* setl tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
 au BufRead,BufNewFile ~/code/charlie-ruby/* setl tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
 au BufRead,BufNewFile *.rb setl tabstop=2 shiftwidth=4 softtabstop=2 expandtab
+
+" scrolls the buffer before you reach the last line of the window
+set scrolloff=3
+
+" enable mouse in console
+set mousemodel=extend
+set mouse=a
+set mousehide
+
+" make mouse scrolling work in vim!!!
+map <M-Esc>[62~ <ScrollWheelUp>
+map <M-Esc>[63~ <ScrollWheelDown>
+map <M-Esc>[64~ <S-ScrollWheelUp>
+map <M-Esc>[65~ <S-ScrollWheelDown>
+map! <M-Esc>[62~ <ScrollWheelUp>
+map! <M-Esc>[63~ <ScrollWheelDown>
+map! <M-Esc>[64~ <S-ScrollWheelUp>
+map! <M-Esc>[65~ <S-ScrollWheelDown>
+
+" make keypad work in vim with iTerm on OS X!
+map <Esc>Oq 1
+map <Esc>Or 2
+map <Esc>Os 3
+map <Esc>Ot 4
+map <Esc>Ou 5
+map <Esc>Ov 6
+map <Esc>Ow 7
+map <Esc>Ox 8
+map <Esc>Oy 9
+map <Esc>Op 0
+map <Esc>On .
+map <Esc>OQ /
+map <Esc>OR *
+map <kPlus> +
+map <Esc>OS -
+map! <Esc>Oq 1
+map! <Esc>Or 2
+map! <Esc>Os 3
+map! <Esc>Ot 4
+map! <Esc>Ou 5
+map! <Esc>Ov 6
+map! <Esc>Ow 7
+map! <Esc>Ox 8
+map! <Esc>Oy 9
+map! <Esc>Op 0
+map! <Esc>On .
+map! <Esc>OQ /
+map! <Esc>OR *
+map! <kPlus> +
+map! <Esc>OS -
+
