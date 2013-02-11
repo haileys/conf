@@ -92,7 +92,7 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
     function current-ruby {
         ruby -v | cut -d' ' -f2
     }
-    chruby ruby-1.9.3-p362
+    chruby ruby-1.9.3-p385
 fi
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
