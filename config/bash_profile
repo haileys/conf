@@ -90,7 +90,7 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
     source "/usr/local/opt/chruby/share/chruby/chruby.sh"
     export RUBIES=(~/.rubies/*)
     function current-ruby {
-        ruby -v | cut -d' ' -f2
+        echo "${RUBY_ROOT##*/}"
     }
     chruby ruby-1.9.3-p385
 fi
