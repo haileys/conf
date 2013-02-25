@@ -92,7 +92,7 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
     function current-ruby {
         echo "${RUBY_ROOT##*/}"
     }
-    chruby ruby-1.9.3-p385
+    chruby ruby-2.0.0-p0
 fi
 
 if [[ "$(uname)" = "Darwin" ]]; then
