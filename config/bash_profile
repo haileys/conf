@@ -95,11 +95,6 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
     chruby ruby-1.9.3-p385
 fi
 
-if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-	source ~/perl5/perlbrew/etc/bashrc
-	perlbrew switch perl-5.16.0
-fi
-
 if [[ "$(uname)" = "Darwin" ]]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
