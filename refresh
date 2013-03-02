@@ -22,6 +22,7 @@ def sync(files)
       puts "\e[31;1m no such file!\e[0m"
       next
     end
+    FileUtils.mkdir_p File.dirname to
     if from =~ /\.erb$/
       File.open(to, "w") { |f| f.write ERB.new(File.read(from)).result }
       puts "\e[32;1m erb\e[0m"
