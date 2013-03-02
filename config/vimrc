@@ -1,4 +1,5 @@
 syn on
+set t_Co=256
 set modelines=3
 set background=dark
 
