@@ -1,2 +1,3 @@
-sync  "vim/colors/cobalt.vim"     => "~/.vim/colors/cobalt.vim",
-      "vim/colors/codeschool.vim" => "~/.vim/colors/codeschool.vim"
+Dir["vim/**/*"].select { |x| File.file? x }.each do |f|
+  sync f => "~/.#{f}"
+end
