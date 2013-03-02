@@ -1,5 +1,6 @@
 syn on
 set t_Co=256
+colorscheme jellybeans
 set modelines=3
 set background=dark
 
