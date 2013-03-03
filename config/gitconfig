@@ -1,3 +1,5 @@
 [user]
 	name = Charlie Somerville
 	email = charlie@charliesomerville.com
+[color]
+    ui = auto
