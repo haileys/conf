@@ -3,3 +3,5 @@
 	email = charlie@charliesomerville.com
 [color]
     ui = auto
+[url "git://github.com/"]
+	insteadOf = gh:
