@@ -102,6 +102,10 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
         echo "${RUBY_ROOT##*/}"
     }
     chruby ruby-2.0.0-p0
+else
+    function current-ruby {
+        echo
+    }
 fi
 
 if [[ "$(uname)" = "Darwin" ]]; then
