@@ -1,11 +1,12 @@
 # vim:set ft=sh:
 
-red=`tput setaf 1`
-green=`tput setaf 2`
-blue=`tput setaf 6`
-yellow=`tput setaf 3`
-reset=`tput sgr0`
-bold=`tput bold`
+red="\033[31m"
+redbg="\033[41m"
+green="\033[32m"
+blue="\033[36m"
+yellow="\033[33m"
+reset="\033[0m"
+bold="\033[1m"
 
 export PATH="$HOME/.cabal/bin:/usr/local/share/npm/bin:/usr/local/sbin:$HOME/.cabal/bin:/usr/local/bin:$PATH"
 
@@ -20,14 +21,22 @@ alias irb="pry --simple-prompt"
 alias tor-ssh='ssh -o ProxyCommand="/usr/local/bin/connect -4 -S localhost:49546 %h %p"'
 alias get="axel -n 20 -a "
 
-prompt_char="λ"
+if [[ "$(uname)" == "Darwin" ]]; then
+    prompt_char="λ"
+else
+    prompt_char="\[$red\]#"
+fi
 
 function current-branch {
     git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /'
 }
 
 function prompt-normal {
-    PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(current-branch)\[$red\]\$(current-ruby) \[$green\]\[$bold\]$prompt_char \[$reset\]"
+    if [[ "$(uname)" == "Darwin" ]]; then
+        PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(current-branch)\[$red\]\$(current-ruby) \[$green\]\[$bold\]$prompt_char \[$reset\]"
+    else
+        PS1="\[\033[G\]\[$bold\]\[$redbg\]\$(hostname)\[$reset\]\[$bold\] \[$yellow\]\w \[$blue\]\$(current-branch)\[$red\]\$(current-ruby) \[$green\]\[$bold\]$prompt_char \[$reset\]"
+    fi
 }
 function prompt-min {
     PS1="\[\033[G\]\[$green\]\[$bold\]$prompt_char \[$reset\]"
