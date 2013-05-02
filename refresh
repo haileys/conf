@@ -36,16 +36,3 @@ end
 Dir["./**/sync.rb"].each do |file|
   load file
 end
-
-puts "\e[33;1mRunning hooks\e[0m"
-
-Dir["./hooks/*.rb"].each do |file|
-  hook_name = file.split("/").last[0...-3]
-  print "\e[34;1m=> \e[0;1m#{hook_name}\e[0m"
-  begin
-    load file
-    puts "\e[32;1m ok\e[0m"
-  rescue  
-    puts "\e[31;1m failed\e[0m"
-  end
-end
