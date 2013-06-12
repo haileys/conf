@@ -21,18 +21,14 @@ alias irb="pry --simple-prompt"
 alias tor-ssh='ssh -o ProxyCommand="/usr/local/bin/connect -4 -S localhost:49546 %h %p"'
 alias get="axel -n 20 -a "
 
-if [[ "$(uname)" == "Darwin" ]]; then
-    prompt_char="λ"
-else
-    prompt_char="\[$red\]#"
-fi
+prompt_char="λ"
 
 function current-branch {
     git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1 /'
 }
 
 function prompt-normal {
-    if [[ "$(uname)" == "Darwin" ]]; then
+    if [[ ! "$(who am i)" == *\(* ]]; then
         PS1="\[\033[G\]\[$bold\]\[$yellow\]\w \[$blue\]\$(current-branch)\[$red\]\$(current-ruby) \[$green\]\[$bold\]$prompt_char \[$reset\]"
     else
         PS1="\[\033[G\]\[$bold\]\[$redbg\]\$(hostname)\[$reset\]\[$bold\] \[$yellow\]\w \[$blue\]\$(current-branch)\[$red\]\$(current-ruby) \[$green\]\[$bold\]$prompt_char \[$reset\]"
