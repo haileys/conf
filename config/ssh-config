@@ -1,4 +1,4 @@
-Host charlie.bz
+Host charlie.bz, rpi
     User root
     ForwardAgent yes
 
