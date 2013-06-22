@@ -104,7 +104,7 @@ elif [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
     function current-ruby {
         echo "${RUBY_ROOT##*/}"
     }
-    chruby ruby-2.0.0-p0 &>/dev/null
+    chruby ruby-2.0.0-p195 &>/dev/null
 else
     function current-ruby {
         echo
