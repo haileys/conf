@@ -14,7 +14,7 @@ set cursorline
 set laststatus=2
 
 " kill delay when hitting esc in visual mode
-set timeoutlen 100
+set timeoutlen=100
 
 au BufRead,BufNewFile ~/code/ruby/* setl tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
 au BufRead,BufNewFile ~/code/charlie-ruby/* setl tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
