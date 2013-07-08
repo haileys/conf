@@ -22,7 +22,7 @@ au BufRead,BufNewFile *.rb setl tabstop=2 shiftwidth=4 softtabstop=2 expandtab
 set scrolloff=3
 
 " most useless crap ever, stops you using the alt key
-:set winaltkeys=no
+set winaltkeys=no
 
 noremap <C-up>    <C-w><up>
 noremap <C-down>  <C-w><down>
